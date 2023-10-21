@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+# library to get arguments
+import sys
+
+
+def fac():
+    """
+    Factorize
+    """
+    try:
+        c_f = sys.argv[1]
+        with open(c_f) as f:
+            for c_n in f:
+                c_n = int(c_n)
+                if c_n % 2 == 0:
+                        print("{}={}*{}".format(c_n, c_n // 2, 2))
+                        continue
+                i = 3
+                while i < c_n // 2:
+                    if c_n % i == 0:
+                        print("{}={}*{}".format(c_n, c_n // i, i))
+                        break
+                    i = i + 2
+                if i == (c_n // 2) + 1:
+                    print("{}={}*{}".format(c_n, c_n, 1))
+    except (IndexError):
+        pass
+
+
+# autostart
+fac()
